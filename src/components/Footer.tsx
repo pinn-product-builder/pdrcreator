@@ -5,6 +5,7 @@ const footerLinks = [
   { label: "System Prompt", href: N8N_LINKS.prompt },
   { label: "Landing Page", href: N8N_LINKS.landing },
   { label: "Workflow n8n", href: N8N_LINKS.workflow },
+  { label: "PRD SaaS", href: N8N_LINKS.saas },
 ];
 
 const Footer = () => {
@@ -41,7 +42,7 @@ const Footer = () => {
         {/* Right */}
         <div className="flex items-center gap-1.5 text-[13px] text-success">
           <Circle size={8} className="fill-success" />
-          3 ferramentas ativas
+          4 ferramentas ativas
         </div>
       </div>
     </footer>
