@@ -7,11 +7,11 @@ const tools = [
   {
     icon: Bot,
     title: "Gerador de System Prompt",
-    description: "Cria system prompts de produção para agentes de IA usando Context Engineering e loop Generator-Evaluator-Optimizer.",
+    description: "Cria system prompts de produção para agentes de IA com Context Engineering e loop de avaliação automática.",
     items: [
-      "System Prompt completo com 10 componentes",
-      "Score automático 0-100 com avaliação por 7 dimensões",
-      "Refinamento automático até score ≥ 85",
+      "System Prompt completo com 10 componentes essenciais",
+      "Score 0–100 baseado em 7 dimensões de qualidade",
+      "Refinamento automático até atingir score ≥ 85",
     ],
     link: N8N_LINKS.prompt,
     accentColor: "#8B5CF6",
@@ -19,11 +19,11 @@ const tools = [
   {
     icon: Layout,
     title: "Gerador de Landing Page",
-    description: "Gera prompts profissionais para o Lovable com Knowledge File, Design System completo e copy real para cada seção.",
+    description: "Gera prompts profissionais para o Lovable com Design System, Knowledge File e copy real por seção.",
     items: [
       "Knowledge File + Design Tokens prontos para colar",
-      "Prompts por seção com copy real (zero lorem ipsum)",
-      "Checklist de lançamento com 20 critérios",
+      "Prompts por seção com copy real — zero lorem ipsum",
+      "Checklist de lançamento com 20 critérios de qualidade",
     ],
     link: N8N_LINKS.landing,
     accentColor: "#6366F1",
@@ -31,11 +31,11 @@ const tools = [
   {
     icon: Workflow,
     title: "Gerador de Workflows n8n",
-    description: "Arquiteta e gera JSON completo de workflow n8n aplicando metodologias de produção. Pronto para importar com Ctrl+V.",
+    description: "Arquiteta e gera JSON completo de workflow n8n com metodologias de produção. Pronto para importar.",
     items: [
       "Blueprint com arquitetura canônica de 8 fases",
-      "JSON validado com typeVersions corretos",
-      "Repair automático se erros forem detectados",
+      "JSON validado com typeVersions e connections corretos",
+      "Repair automático quando erros são detectados",
     ],
     link: N8N_LINKS.workflow,
     accentColor: "#06B6D4",
@@ -44,22 +44,22 @@ const tools = [
 
 const ToolsSection = () => {
   return (
-    <section id="ferramentas" className="py-16 lg:py-24">
+    <section id="ferramentas" className="py-14 lg:py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10 lg:mb-14"
         >
           <h2 className="text-2xl lg:text-3xl font-bold text-foreground">Escolha sua ferramenta</h2>
-          <p className="text-muted-foreground mt-3">
-            Cada ferramenta é um workflow n8n completo ativado por formulário.
+          <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
+            Três workflows n8n especializados. Preencha o formulário e receba o resultado no email.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto">
           {tools.map((tool, i) => (
             <ToolCard key={tool.title} {...tool} index={i} />
           ))}

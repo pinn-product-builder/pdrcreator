@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Zap, Menu, X } from "lucide-react";
-import { N8N_LINKS } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Ferramentas", href: "#ferramentas" },
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "O que você recebe", href: "#o-que-voce-recebe" },
+  { label: "Resultados", href: "#o-que-voce-recebe" },
 ];
 
 const Header = () => {
@@ -22,19 +21,19 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-14 lg:h-16 flex items-center transition-all duration-300 backdrop-blur-xl ${
-        scrolled ? "border-b border-[rgba(255,255,255,0.06)]" : ""
+        scrolled ? "border-b border-border/40 shadow-lg shadow-background/50" : ""
       }`}
-      style={{ background: "rgba(10,15,30,0.85)" }}
+      style={{ background: "rgba(10,15,30,0.88)" }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Zap size={20} className="text-primary" />
-          <span className="text-foreground font-bold text-lg">PRD Hub</span>
-          <span className="ml-1 inline-flex items-center rounded-full bg-primary/20 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
+        <a href="#" className="flex items-center gap-2 group">
+          <Zap size={20} className="text-primary transition-transform duration-200 group-hover:scale-110" />
+          <span className="text-foreground font-bold text-lg tracking-tight">PRD Hub</span>
+          <span className="ml-1 inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
             Beta
           </span>
-        </div>
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
@@ -42,7 +41,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="relative text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+              className="relative text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
             >
               {link.label}
             </a>
@@ -59,11 +58,11 @@ const Header = () => {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg text-foreground hover:bg-secondary transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -79,36 +78,48 @@ const Header = () => {
               onClick={() => setMobileOpen(false)}
             />
             <motion.nav
-              className="fixed top-0 right-0 h-full w-[280px] bg-card z-50 p-6 flex flex-col gap-2"
+              className="fixed top-0 right-0 h-full w-[280px] bg-card border-l border-border z-50 p-6 flex flex-col gap-1"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
-              <button
-                className="self-end p-2 text-foreground mb-4"
-                onClick={() => setMobileOpen(false)}
-                aria-label="Fechar menu"
-              >
-                <X size={24} />
-              </button>
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <Zap size={18} className="text-primary" />
+                  <span className="text-foreground font-bold">PRD Hub</span>
+                </div>
+                <button
+                  className="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center h-12 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  aria-label="Fechar menu"
                 >
-                  {link.label}
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center h-12 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors text-[15px]"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              
+              <div className="mt-auto pt-6 border-t border-border">
+                <a
+                  href="#ferramentas"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center h-12 rounded-lg bg-primary text-primary-foreground font-semibold transition-all duration-200 hover:brightness-110"
+                >
+                  Começar agora
                 </a>
-              ))}
-              <a
-                href="#ferramentas"
-                onClick={() => setMobileOpen(false)}
-                className="mt-4 flex items-center justify-center h-12 rounded-lg bg-primary text-primary-foreground font-semibold"
-              >
-                Começar agora
-              </a>
+              </div>
             </motion.nav>
           </>
         )}
