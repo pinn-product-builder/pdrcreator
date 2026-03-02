@@ -1,4 +1,4 @@
-import { Bot, Layout, Workflow, CheckCircle } from "lucide-react";
+import { Bot, Layout, Workflow, Rocket, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
@@ -38,6 +38,18 @@ const features = [
       "Pronto para importar via Ctrl+V no n8n",
     ],
   },
+  {
+    icon: Rocket,
+    title: "PRD SaaS",
+    accentColor: "#F59E0B",
+    items: [
+      "Visão do produto e personas detalhadas",
+      "Requisitos funcionais e não-funcionais",
+      "Stack técnica e arquitetura recomendada",
+      "Roadmap de MVP com priorização clara",
+      "Métricas de sucesso e KPIs definidos",
+    ],
+  },
 ];
 
 const FeaturesSection = () => {
@@ -57,7 +69,7 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-6xl mx-auto">
           {features.map((feat, i) => (
             <motion.div
               key={feat.title}

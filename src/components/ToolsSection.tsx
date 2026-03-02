@@ -1,4 +1,4 @@
-import { Bot, Layout, Workflow } from "lucide-react";
+import { Bot, Layout, Workflow, Rocket } from "lucide-react";
 import { N8N_LINKS } from "@/lib/constants";
 import ToolCard from "./ToolCard";
 import { motion } from "framer-motion";
@@ -40,6 +40,18 @@ const tools = [
     link: N8N_LINKS.workflow,
     accentColor: "#06B6D4",
   },
+  {
+    icon: Rocket,
+    title: "Gerador de PRD SaaS",
+    description: "Gera um PRD completo para MicroSaaS e SaaS — escopo, funcionalidades, stack técnica e roadmap prontos para execução.",
+    items: [
+      "PRD estruturado com visão, personas e requisitos",
+      "Stack técnica recomendada e arquitetura definida",
+      "Roadmap de MVP com priorização de funcionalidades",
+    ],
+    link: N8N_LINKS.saas,
+    accentColor: "#F59E0B",
+  },
 ];
 
 const ToolsSection = () => {
@@ -55,11 +67,11 @@ const ToolsSection = () => {
         >
           <h2 className="text-2xl lg:text-3xl font-bold text-foreground">Escolha sua ferramenta</h2>
           <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
-            Três workflows n8n especializados. Preencha o formulário e receba o resultado no email.
+            Quatro workflows n8n especializados. Preencha o formulário e receba o resultado no email.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-6xl mx-auto">
           {tools.map((tool, i) => (
             <ToolCard key={tool.title} {...tool} index={i} />
           ))}

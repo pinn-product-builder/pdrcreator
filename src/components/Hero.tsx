@@ -74,7 +74,7 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.7 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[13px] text-muted-foreground/70"
         >
-          <span>3 ferramentas ativas</span>
+          <span>4 ferramentas ativas</span>
           <span className="text-border">•</span>
           <span>GPT-4o</span>
           <span className="text-border">•</span>
