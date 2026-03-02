@@ -1,5 +1,5 @@
 export const N8N_LINKS = {
-  prompt: "https://n8n.srv879715.hstgr.cloud/form/prd-prompt-gen-v2-form",
-  landing: "https://n8n.srv879715.hstgr.cloud/form/prd-landing-page-v2-form",
-  workflow: "https://n8n.srv879715.hstgr.cloud/form/prd-wf-generator-v2-form",
+  prompt: "https://n8n.srv879715.hstgr.cloud/form/e8c7b6ba-2de7-4f89-9bf1-6116083e2ce3",
+  landing: "https://n8n.srv879715.hstgr.cloud/form/a81d9f1c-c05c-4f45-9461-c089ddf2e5b0",
+  workflow: "https://n8n.srv879715.hstgr.cloud/form/7241b21f-7582-46f4-be33-2d92a0d3b0be",
 } as const;
