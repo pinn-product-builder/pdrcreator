@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    /* Dark mode defaults */
     --background: 222 47% 5.5%;
     --foreground: 210 40% 98%;
 
@@ -50,6 +51,9 @@
     --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.3);
     --shadow-glow: 0 0 24px rgba(99,102,241,0.2);
 
+    /* Header */
+    --header-bg: rgba(10, 15, 30, 0.88);
+
     --sidebar-background: 222 47% 5.5%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 239 84% 67%;
@@ -58,6 +62,63 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 217 19% 17%;
     --sidebar-ring: 239 84% 67%;
+  }
+
+  /* Light mode overrides */
+  html.light {
+    --background: 220 22% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 239 84% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 92%;
+    --secondary-foreground: 222 47% 18%;
+
+    --muted: 220 16% 90%;
+    --muted-foreground: 220 12% 42%;
+
+    --accent: 239 84% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 84%;
+    --input: 220 14% 84%;
+    --ring: 239 84% 56%;
+
+    /* Tool-specific accents — unchanged */
+    --accent-prompt: 263 70% 58%;
+    --accent-landing: 239 84% 56%;
+    --accent-workflow: 187 92% 36%;
+
+    /* Status colors */
+    --success: 160 84% 32%;
+    --warning: 38 92% 44%;
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+    --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.1), 0 0 0 1px rgba(99,102,241,0.18);
+    --shadow-glow: 0 0 24px rgba(99,102,241,0.12);
+
+    /* Header */
+    --header-bg: rgba(248, 249, 253, 0.92);
+
+    --sidebar-background: 220 22% 97%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 239 84% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 18% 92%;
+    --sidebar-accent-foreground: 222 47% 18%;
+    --sidebar-border: 220 14% 84%;
+    --sidebar-ring: 239 84% 56%;
   }
 }
 
@@ -101,9 +162,34 @@
   }
 }
 
+/* Light mode utility overrides */
+html.light .bg-hero-glow {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.07), transparent);
+}
+
+html.light .bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0h40v40' fill='none' stroke='rgba(0,0,0,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+html.light .text-gradient-hero {
+  background: linear-gradient(135deg, hsl(263 70% 54%), hsl(239 84% 55%), hsl(187 92% 34%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 @keyframes glow-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
   50% { box-shadow: 0 0 0 4px rgba(99,102,241,0.4); }
+}
+
+@keyframes glow-pulse-light {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+  50% { box-shadow: 0 0 0 4px rgba(99,102,241,0.22); }
+}
+
+html.light .glow-pulse {
+  animation: glow-pulse-light 2s infinite;
 }
 
 @keyframes hero-glow-pulse {

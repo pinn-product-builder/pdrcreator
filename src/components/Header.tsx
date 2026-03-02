@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Zap, Menu, X } from "lucide-react";
+import { Zap, Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const navLinks = [
   { label: "Ferramentas", href: "#ferramentas" },
@@ -11,6 +12,7 @@ const navLinks = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -23,7 +25,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 h-14 lg:h-16 flex items-center transition-all duration-300 backdrop-blur-xl ${
         scrolled ? "border-b border-border/40 shadow-lg shadow-background/50" : ""
       }`}
-      style={{ background: "rgba(10,15,30,0.88)" }}
+      style={{ background: "var(--header-bg)" }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
@@ -48,22 +50,42 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <a
-          href="#ferramentas"
-          className="hidden lg:inline-flex items-center h-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold transition-all duration-300 hover:brightness-110 glow-pulse"
-        >
-          Começar agora
-        </a>
+        {/* Desktop right group */}
+        <div className="hidden lg:flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors duration-200"
+            aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg text-foreground hover:bg-secondary transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <a
+            href="#ferramentas"
+            className="inline-flex items-center h-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold transition-all duration-300 hover:brightness-110 glow-pulse"
+          >
+            Começar agora
+          </a>
+        </div>
+
+        {/* Mobile right group */}
+        <div className="lg:hidden flex items-center gap-1">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors duration-200"
+            aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button
+            className="flex items-center justify-center w-11 h-11 rounded-lg text-foreground hover:bg-secondary transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -111,7 +133,24 @@ const Header = () => {
                 ))}
               </div>
               
-              <div className="mt-auto pt-6 border-t border-border">
+              <div className="mt-auto pt-6 border-t border-border flex flex-col gap-3">
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors text-sm font-medium"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun size={16} />
+                      Modo claro
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={16} />
+                      Modo escuro
+                    </>
+                  )}
+                </button>
+
                 <a
                   href="#ferramentas"
                   onClick={() => setMobileOpen(false)}
