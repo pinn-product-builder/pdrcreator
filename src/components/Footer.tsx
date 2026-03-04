@@ -2,7 +2,7 @@ import { Zap, Circle } from "lucide-react";
 import { N8N_LINKS } from "@/lib/constants";
 
 const footerLinks = [
-  { label: "System Prompt", href: N8N_LINKS.prompt },
+  { label: "Propostas Comerciais", href: N8N_LINKS.proposal },
   { label: "Landing Page", href: N8N_LINKS.landing },
   { label: "Workflow n8n", href: N8N_LINKS.workflow },
   { label: "PRD SaaS", href: N8N_LINKS.saas },

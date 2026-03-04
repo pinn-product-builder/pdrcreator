@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: Bot,
-    title: "System Prompt",
+    title: "Propostas Comerciais",
     accentColor: "#8B5CF6",
     items: [
-      "Persona, Role e Goal definidos com clareza",
-      "Constraints, Guidelines e Tone of Voice",
-      "Output Format com exemplos concretos",
-      "Score 0–100 com 7 critérios de avaliação",
-      "Loop de refinamento até qualidade ≥ 85",
+      "Escopo detalhado com entregas e prazos",
+      "Valores e condições de pagamento claros",
+      "Copy persuasiva adaptada ao segmento",
+      "Seção de diferenciais e garantias",
+      "Formatação profissional pronta para envio",
     ],
   },
   {

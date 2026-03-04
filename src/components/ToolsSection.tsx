@@ -6,14 +6,14 @@ import { motion } from "framer-motion";
 const tools = [
   {
     icon: Bot,
-    title: "Gerador de System Prompt",
-    description: "Cria system prompts de produção para agentes de IA com Context Engineering e loop de avaliação automática.",
+    title: "Gerador de Propostas Comerciais",
+    description: "Cria propostas comerciais profissionais e persuasivas, prontas para enviar ao cliente.",
     items: [
-      "System Prompt completo com 10 componentes essenciais",
-      "Score 0–100 baseado em 7 dimensões de qualidade",
-      "Refinamento automático até atingir score ≥ 85",
+      "Proposta estruturada com escopo, prazos e valores",
+      "Copy profissional adaptada ao segmento do cliente",
+      "Formatação pronta para apresentação e envio",
     ],
-    link: N8N_LINKS.prompt,
+    link: N8N_LINKS.proposal,
     accentColor: "#8B5CF6",
   },
   {
